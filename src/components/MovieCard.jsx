@@ -1,3 +1,5 @@
+import "./MovieCard.css";
+
 const MovieCard = ({ movie }) => {
     const getFlagUrl = (languageCode) => {
         return `/flags/${languageCode}.png`;
@@ -14,34 +16,24 @@ const MovieCard = ({ movie }) => {
     };
 
     return (
-        <div style={{ width: "200px", margin: "10px" }}>
+        <div className="movie-card">
             <img
                 src={getPosterUrl(movie.poster_path)}
                 alt={movie.title || movie.name}
-                style={{ width: "100%" }}
+                className="movie-poster"
             />
-            <h3>{movie.title || movie.name}</h3>
-            <p>Titolo Originale: {movie.original_title || movie.original_name}</p>
-            <p>
-                Lingua:{" "}
-                <img
-                    src={getFlagUrl(movie.original_language)}
-                    alt={movie.original_language}
-                    style={{ width: "20px", height: "20px" }}
-                    onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = "/flags/placeholder.png";
-                    }}
-                />
-            </p>
-            <p>
-                Voto:{" "}
-                {Array.from({ length: 5 }, (_, index) => (
-                    <span key={index}>
-                        {index < convertVoteToStars(movie.vote_average) ? "⭐" : "☆"}
-                    </span>
-                ))}
-            </p>
+            <div className="movie-overlay">
+                <h3>{movie.title || movie.name}</h3>
+                <p>{movie.original_title || movie.original_name}</p>
+                <p>
+                    Voto:{" "}
+                    {Array.from({ length: 5 }, (_, index) => (
+                        <span key={index}>
+                            {index < convertVoteToStars(movie.vote_average) ? "⭐" : "☆"}
+                        </span>
+                    ))}
+                </p>
+            </div>
         </div>
     );
 };

@@ -1,0 +1,25 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #141414;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-logo h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e50914;
+    margin: 0;
+    cursor: pointer;
+}
+
+.navbar-search {
+    display: flex;
+    align-items: center;
+}

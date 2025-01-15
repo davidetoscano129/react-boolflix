@@ -1,11 +1,11 @@
-import SearchBar from "./components/SearchBar";
+import Header from "./components/Header";
 import MovieList from "./components/MovieList";
+import "./App.css";
 
 const App = () => {
   return (
-    <div>
-      <h1>Boolflix</h1>
-      <SearchBar />
+    <div className="App">
+      <Header />
       <MovieList />
     </div>
   );
